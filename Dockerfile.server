@@ -1,0 +1,14 @@
+FROM python:3.9-slim
+
+# Install gRPC tools
+RUN python3 -m pip install grpcio-tools
+
+WORKDIR /app
+
+COPY requirements.txt requirements.txt
+RUN pip install --no-cache-dir -r requirements.txt
+
+COPY . .
+COPY Server ./Server/
+
+CMD ["python3", "./Server/ImageServer.py", "/app/images"]
