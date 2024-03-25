@@ -3,12 +3,14 @@ FROM python:3.9-slim
 # Install gRPC tools
 RUN python3 -m pip install grpcio-tools
 
+RUN pip install --upgrade protobuf
+
 WORKDIR /app
 
-COPY requirements.txt requirements.txt
-RUN pip install --no-cache-dir -r requirements.txt
+# COPY requirements.txt requirements.txt
+# RUN pip install --no-cache-dir -r requirements.txt
 
 COPY . .
 COPY Server ./Server/
 
-CMD ["python3", "./Server/ImageServer.py", "/app/images"]
+# CMD ["python3", "./Server/ImageServer.py", "/app/images"]

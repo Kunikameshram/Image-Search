@@ -1,12 +1,14 @@
 import random
 import os
 import sys
+print(sys.path)
 import grpc
 from concurrent import futures
-import image_search__pb2
-import image_search__pb2_grpc
+import Image_search__pb2
+import Image_search__pb2_grpc
 
-class ImageSearchServicer(image_search__pb2_grpc.ImageSearchServicer):
+
+class ImageSearchServicer(Image_search__pb2_grpc.ImageSearchServicer):
     def __init__(self, image_folder):
         self.image_folder = image_folder
 
@@ -17,15 +19,15 @@ class ImageSearchServicer(image_search__pb2_grpc.ImageSearchServicer):
             image_file = random.choice(images)
             with open(os.path.join(self.image_folder, image_file), "rb") as f:
                 image_data = f.read()
-            return image_search__pb2.ImageResponse(image_data=image_data)
+            return Image_search__pb2.ImageResponse(image_data=image_data)
         else:
             context.set_code(grpc.StatusCode.NOT_FOUND)
             context.set_details("No image found for the given keyword")
-            return image_search__pb2.ImageResponse()
+            return Image_search__pb2.ImageResponse()
 
 def serve(image_folder):
     server = grpc.server(futures.ThreadPoolExecutor(max_workers=10))
-    image_search__pb2_grpc.add_ImageSearchServicer_to_server(
+    Image_search__pb2_grpc.add_ImageSearchServicer_to_server(
         ImageSearchServicer(image_folder), server
     )
     server.add_insecure_port("[::]:50051")
