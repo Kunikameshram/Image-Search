@@ -4,11 +4,11 @@ RUN python3 -m pip install grpcio-tools
 
 RUN pip install --upgrade protobuf
 
-RUN pip install opencv-python
+# RUN pip install opencv-python
 
-RUN apt-get update \
-    && apt-get install -y libgl1-mesa-glx libglib2.0-0 \
-    && rm -rf /var/lib/apt/lists/*
+# RUN apt-get update \
+#     && apt-get install -y libgl1-mesa-glx libglib2.0-0 \
+#     && rm -rf /var/lib/apt/lists/*
 
 WORKDIR /app
 

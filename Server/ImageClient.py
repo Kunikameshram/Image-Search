@@ -8,7 +8,7 @@ import os
 def search_image(keyword, host="172.17.0.2", port=50051):
     channel = grpc.insecure_channel(f"{host}:{port}")
     stub = Image_search__pb2_grpc.ImageSearchStub(channel)
-    response = stub.SearchImage(Image_search__pb2.KeywordRequest(keyword=keyword))
+    response = stub.SearchImage(Image_search__pb2.KeywordRequest(keyword = keyword))
     return response
 
 if __name__ == "__main__":
