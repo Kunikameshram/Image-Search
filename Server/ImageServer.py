@@ -2,8 +2,6 @@ import random
 import os
 import grpc
 from concurrent import futures
-import sqlite3
-import io
 import Image_search__pb2
 import Image_search__pb2_grpc
 from database import DatabaseManager

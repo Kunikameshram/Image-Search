@@ -36,13 +36,20 @@ if __name__ == "__main__":
     db_file = "image_metadata.db"  # Set the database file name here
     db_manager = DatabaseManager(db_file)
     records = [
-        ("dog", "dog.jpg"),
-        ("dog", "dog2.jpg"),
-        ("cat", "cat.jpg"),
-        ("cat", "cat2.jpg"),
-        ("horse", "horse.jpg"),
-        ("horse", "horse2.jpg"),
-        ("bird", "bird.jpg"),
-        ("bird", "bird2.jpg"),
+        ("dog", "dog5.jpg"),
+        ("dog", "dog6.jpg"),
+        ("cat", "cat3.jpg"),
+        ("cat", "cat4.jpg"),
+        ("cat", "cat5.jpg"),
+        ("cat", "cat6.jpg"),
+        ("horse", "horse3.jpg"),
+        ("horse", "horse4.jpg"),
+        ("horse", "horse5.jpg"),
+        ("horse", "horse6.jpg"),
+        ("bird", "bird3.jpg"),
+        ("bird", "bird4.jpg"),
+        ("bird", "bird5.jpg"),
+        ("bird", "bird6.jpg"),
+        
     ]
     db_manager.insert_image_records(records)
